@@ -1,0 +1,12 @@
+#okhre {
+    width:40%;
+    height: 2rem;
+    outline:none;
+    border-top: hidden;
+    border-right: hidden;
+    border-left: hidden;
+}
+
+.table-box {
+    overflow-y: auto;
+}

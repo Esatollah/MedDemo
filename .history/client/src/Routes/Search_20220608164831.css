@@ -1,0 +1,33 @@
+#search {
+    width:80%;
+    height: 2rem;
+    outline:none;
+    border-top: hidden;
+    border-right: hidden;
+    border-left: hidden;
+    font-size: 2rem;
+}
+
+.table-box {
+    max-height: 200px;
+    max-width: 80%;
+    min-width:80%;
+    overflow-y: auto;
+}
+
+h1 {
+    display:flex;
+    justify-content: center;
+}
+
+.order-box {
+    justify-content: center;
+}
+
+.search-box {
+    max-width:50%;
+}
+
+.drug-row:hover {
+    background-color: beige;
+}

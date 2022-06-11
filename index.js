@@ -4,11 +4,11 @@ const pool = require("./db/index.js")
 const cors = require("cors");
 require("dotenv").config();
 const path = require("path");
-const { allowedNodeEnvironmentFlags } = require("process");
 
 
 app.use(cors());
 app.use(express.json());
+if (process.env.NODE_ENV === "production")
 app.use(express.static(path.join(__dirname, "client/build")));
 
 const PORT = process.env.PORT || 5000;
@@ -22,7 +22,7 @@ app.get("/api", async (req, res) => {
 
         const result = await pool.query(
             `Select * from medikamente where name ilike $1 LIMIT 75`, [`${drugsearch}%`])
-        res.json({
+        res.status(200).json({
             meds: result.rows
         })
     } catch (e) {
@@ -39,7 +39,7 @@ app.get("/api/orders", async (req, res) => {
             FROM Medikamente, Bestellungen, MB\
             Where MB.OId = Bestellungen.OId and MB.id = Medikamente.id")
 
-        res.json({
+        res.status(201).json({
             orders: result.rows
         })
     } catch (error) {
@@ -56,6 +56,7 @@ app.post("/api", async (req, res) => {
         for (let i = 0; i < Object.keys(req.body.drugs).length; i++) {
             await pool.query(`Insert into MB (id, OId, Bestellung_anzahl) values ($1, $2, $3)`, [req.body.drugs[i].id, OId.rows[0].oid, req.body.drugs[i].anzahl])
         }
+        res.status(202);
 
     } catch (err) {
         console.error(err)
@@ -67,14 +68,14 @@ app.delete("/api/orders/:oid", async (req, res) => {
     try {
         const { oid } = req.params;
         const result = await pool.query("Delete From Bestellungen Where OId = $1", [oid])
-        res.status(200)
+        res.status(203)
     } catch (error) {
         console.error(error)
     }
 });
 
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client/build/index.html"));
+    res.status(204).sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
 app.listen(PORT, () => {

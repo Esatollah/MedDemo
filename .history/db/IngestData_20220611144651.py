@@ -18,10 +18,10 @@ for i, row in enumerate(contents):
     contents[i]= row[18:118].strip()+";"+row[121:124].strip()+";"+row[124:129].strip()+";"+row[129:131].strip()+";"+row[118:121].strip()+";"+row[164:167].strip()
 
 
-for i,row in enumerate(contents):
+for row in contents:
     row_list = row.split(";")
     cursor.execute("INSERT INTO Medikamente(Name, Kassenzeichen, Menge, Mengenart, Box, Abgabezahl) values (%s, %s, %s, %s, %s, %s)", (row_list[0], row_list[1], row_list[2], row_list[3], row_list[4], row_list[5]))
-    print(i)
+    print("something")
 
 sql_con.commit()
 

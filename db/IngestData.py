@@ -27,5 +27,3 @@ sql_con.commit()
 
 cursor.close()
 sql_con.close()
-
-# postgres://tcvgibcprousih:12666b9e5b00bc15c03c8564782389e7da6aa35dbf7ea583bf39bd1df251f616@ec2-34-225-159-178.compute-1.amazonaws.com:5432/dfhf52fpvishqb

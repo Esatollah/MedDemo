@@ -73,13 +73,7 @@ border: 1px;
 }
 
 td {
-    padding-top:10px;
-    padding-bottom:10px;
-
-    @media(min-width: 1000px) {
-        padding-top:5px;
-        padding-bottom:5px;
-    }
+    padding-bottom:20px;
 }
 
 `;

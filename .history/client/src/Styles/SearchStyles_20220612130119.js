@@ -29,7 +29,7 @@ export const SearchWrap = styled.div`
 
 .table-container {
     max-height: 200px;
-    max-width: 100%;
+    max-width: 80%;
     overflow-y: auto;
 }
 
@@ -73,13 +73,7 @@ border: 1px;
 }
 
 td {
-    padding-top:10px;
-    padding-bottom:10px;
-
-    @media(min-width: 1000px) {
-        padding-top:5px;
-        padding-bottom:5px;
-    }
+    padding:5px;
 }
 
 `;

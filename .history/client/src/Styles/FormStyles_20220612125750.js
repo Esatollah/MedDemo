@@ -42,7 +42,7 @@ export const FormWrap = styled.div`
     }
 
     textarea {
-        width: 95%;
+        width: 100%;
         resize:none;
         font-size: 1.25rem;
         font-family: sans-serif
